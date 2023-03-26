@@ -40,3 +40,61 @@ section.hero {
         outline: none;
     }
 }
+
+.btn-primary{
+    background: $primary;
+    border-color: $primary;
+    transition: $smooth;
+    &:hover {
+        background: $primary-hover;
+        border-color: $primary-hover;
+        color: $pure;
+    }
+}
+
+section.cart{
+    background: $secondary;
+    .amount{
+        color: $primary;
+    }
+}
+
+section.login{
+    min-height:calc(100vh - 90px);
+    a{
+        color: $primary;
+        &:hover{
+            color: $primary-hover;
+        }
+    }
+    button{
+        background: $primary;
+        color: $pure;
+        transition: $smooth;
+        border:2px solid transparent;
+        .icon{
+            color: $pure;
+        }
+        &:hover{
+            border-color:$primary;
+            background: $pure;
+            color: $primary;
+            .icon{
+                color: $primary-hover;
+            }
+            &:focus{
+                outline: 2px solid transparent;
+            }
+        }
+    }
+    .textbox{ 
+        border: 2px solid transparent;
+        &:focus{
+            border: 1px solid $primary;
+            outline: 1px solid $primary;
+            // outline: 1px solid $primary;
+            // border-color: $primary-hover;
+        }
+     }
+    
+}

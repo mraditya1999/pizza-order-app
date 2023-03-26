@@ -39,3 +39,58 @@ section.hero {
 .add-to-cart:focus {
   outline: none;
 }
+
+.btn-primary {
+  background: #FE5F1E;
+  border-color: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background: #b23301;
+  border-color: #b23301;
+  color: #fff;
+}
+
+section.cart {
+  background: #F8F8F8;
+}
+section.cart .amount {
+  color: #FE5F1E;
+}
+
+section.login {
+  min-height: calc(100vh - 90px);
+}
+section.login a {
+  color: #FE5F1E;
+}
+section.login a:hover {
+  color: #b23301;
+}
+section.login button {
+  background: #FE5F1E;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+section.login button .icon {
+  color: #fff;
+}
+section.login button:hover {
+  border-color: #FE5F1E;
+  background: #fff;
+  color: #FE5F1E;
+}
+section.login button:hover .icon {
+  color: #b23301;
+}
+section.login button:hover:focus {
+  outline: 2px solid transparent;
+}
+section.login .textbox {
+  border: 2px solid transparent;
+}
+section.login .textbox:focus {
+  border: 1px solid #FE5F1E;
+  outline: 1px solid #FE5F1E;
+}

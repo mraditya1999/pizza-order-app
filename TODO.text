@@ -21,3 +21,4 @@ TODO:
     - dependencies express  flash session cookie-parser dotenv mongoose
     - status code article https://www.restapitutorial.com/httpstatuscodes,html
     - Database connection
+- Create Footer
