@@ -1,0 +1,23 @@
+TODO:
+- Create directory structure
+- Create npm project and install all dependencies
+    - dependencies
+        -express
+        -ejs  express-ejs-layouts
+    -Dev dependencies
+        -nodemin
+- Create Express server - create a server.js file
+- Create Home Page using Html Css
+    -include  tailwind Css
+- Create Cart Page
+    -order summary  section
+    -empty cart section
+- Create Orders controller and link it in server.js
+- Create Orders view with table for customer and admin
+- Create Orders single page with status
+- Create Login page with route
+- Create Register page with route
+- build register CRUD
+    - dependencies express  flash session cookie-parser dotenv mongoose
+    - status code article https://www.restapitutorial.com/httpstatuscodes,html
+    - Database connection
