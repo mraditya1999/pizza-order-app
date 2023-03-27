@@ -9,6 +9,7 @@ const { APP_PORT, DB_URL, COOKIE_SECRET } = require('./app/config');
 const session = require('express-session');
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo');
+const passport = require('passport');
 
 // Database Connection
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -36,9 +37,16 @@ app.use(
   })
 );
 
+// Passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Middlewares
 app.use(flash());
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(expressEjsLayouts);
 
