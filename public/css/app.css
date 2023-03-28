@@ -295,6 +295,16 @@ section.hero {
 section.cart .amount {
   color: #FE5F1E;
 }
+section.cart button {
+  background: #FE5F1E !important;
+  border-color: #FE5F1E !important;
+  transition: all 0.3s ease-in-out !important;
+}
+section.cart button:hover {
+  background: #b23301 !important;
+  border-color: #b23301 !important;
+  color: #fff !important;
+}
 
 section.login {
   min-height: calc(100vh - 90px);
@@ -336,4 +346,11 @@ section.login .textbox:focus {
 .noty_theme__mint {
   border-radius: 50px !important;
   padding-left: 8px !important;
+}
+
+a.link {
+  color: #FE5F1E;
+}
+a.link:hover {
+  color: #b23301;
 }

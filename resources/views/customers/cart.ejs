@@ -42,20 +42,28 @@
                                 <span class="amount text-2xl font-bold ml-2">₹ <%= session.cart.totalPrice %></span>
                             </div>
 
-                            <div>
-                                <form class="mt-12" action="">
-                                    <input class="border border-gray-400 p-2 w-1/2 mb-4" type="text"
-                                        placeholder="Phone Number">
-                                    <input class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
-                                    <!-- <div>
-                                    <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Order
-                                    Now</button>
-                                </div> -->
-                                </form>
-                            </div>
+                            <% if(user){ %>
 
-                            <a class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
-                                href="/login">Login to Continue</a>
+                                <div>
+                                    <form class="mt-12" action="/orders" method="POST" id="payment-form">
+                                        <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text"
+                                            placeholder="Phone Number" required>
+                                        <input name="address" class="border border-gray-400 p-2 w-1/2" type="text"
+                                            placeholder="Address" required>
+                                        <div>
+                                            <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
+                                                type="submit">Order
+                                                Now</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <% } else {%>
+
+                                    <a class="btn-primary text-white inline-block cursor-pointer px-6 py-2 rounded-full font-bold mt-6"
+                                        href="/login">Login to Continue</a>
+
+                                    <% } %>
 
                         </div>
             </div>

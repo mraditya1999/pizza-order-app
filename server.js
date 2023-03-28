@@ -43,12 +43,11 @@ passportInit(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middlewares
-app.use(flash());
+// Assets
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(expressEjsLayouts);
+app.use(flash());
 
 // Global Middleware
 app.use((req, res, next) => {
@@ -57,7 +56,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Views
+// Set Template Engine
+app.use(expressEjsLayouts);
 app.set('views', path.join(__dirname, '/resources/views'));
 app.set('view engine', 'ejs');
 

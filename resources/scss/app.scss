@@ -21,12 +21,15 @@ nav li a {
         color: $primary;
     }
 }
+
 section.hero {
     background: $secondary;
 }
+
 .size {
     background: $secondary;
 }
+
 .add-to-cart {
     border: 2px solid $primary;
     color: $primary;
@@ -56,6 +59,17 @@ section.cart{
     // background: $secondary;
     .amount{
         color: $primary;
+    }
+
+    button{
+        background: $primary!important;
+        border-color: $primary!important;
+        transition: $smooth!important;
+        &:hover {
+            background: $primary-hover!important;
+            border-color: $primary-hover!important;
+            color: $pure!important;
+        }
     }
 }
 
@@ -102,4 +116,11 @@ section.login{
 .noty_theme__mint{
     border-radius: 50px!important;
     padding-left: 8px !important;
+}
+
+a.link{
+    color: $primary;
+    &:hover{
+        color: $primary-hover;
+    }
 }
