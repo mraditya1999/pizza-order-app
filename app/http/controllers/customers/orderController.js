@@ -14,17 +14,17 @@ function orderController() {
         address: address,
       });
 
-      order
-        .save()
-        .then((result) => {
-          req.flash('success', 'Order placed successfully');
-          delete req.session.cart;
-          return res.redirect('/customer/orders');
-        })
-        .catch((err) => {
-          req.flash('error', 'Something went wrong');
-          return res.redirect('/cart');
+      order.save().then(async (result) => {
+        const placedOrder = await Order.populate(result, {
+          path: 'customerId',
         });
+        req.flash('success', 'Order placed successfully');
+        delete req.session.cart;
+        // Emit
+        const eventEmitter = req.app.get('eventEmitter');
+        eventEmitter.emit('orderPlaced', placedOrder);
+        return res.redirect('/customer/orders');
+      });
     },
 
     async index(req, res) {
@@ -36,6 +36,21 @@ function orderController() {
         'no-cache,private,no-store,must-revalidate,max-stale=0,post-check=0,pre-check=0'
       );
       return res.render('customers/orders', { orders: orders, moment: moment });
+    },
+
+    async show(req, res) {
+      try {
+        const order = await Order.findById(req.params.id);
+        // .populate('customerId','-password -createdAt -updatedAt');
+        if (req.xhr) {
+          return res.json(order);
+        } else {
+          return res.render('customers/singleOrder', { order });
+        }
+      } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Server error' });
+      }
     },
   };
 }
