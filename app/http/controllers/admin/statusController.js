@@ -1,10 +1,10 @@
-const order = require('../../../models/order');
+const Order = require('../../../models/order');
 
 function statusController() {
   return {
     async update(req, res) {
       try {
-        await order.updateOne(
+        await Order.updateOne(
           { _id: req.body.orderId },
           { status: req.body.status }
         );

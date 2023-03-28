@@ -20,22 +20,12 @@ db.once('open', function () {
   console.log('Database connected');
 });
 
-// Session Store
-let mongoStore = MongoDbStore.create({
-  mongoUrl: DB_URL,
-  collection: 'sessions',
-});
-
-// Event Emitter
-const eventEmitter = new Emitter();
-app.set('eventEmitter', eventEmitter);
-
 // Session config
 app.use(
   session({
     secret: COOKIE_SECRET,
     resave: false,
-    store: mongoStore,
+    store: MongoDbStore.create({ mongoUrl: DB_URL }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 24 hours
     // session will automatically expire after 24 hours
@@ -74,8 +64,11 @@ const server = app.listen(APP_PORT, () => {
   console.log(`Server is running on port http://localhost:${APP_PORT}`);
 });
 
-// Socket
+// Event Emitter
+const eventEmitter = new Emitter();
+app.set('eventEmitter', eventEmitter);
 
+// Socket
 const io = require('socket.io')(server);
 io.on('connection', (socket) => {
   // Join

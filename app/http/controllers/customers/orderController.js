@@ -23,7 +23,7 @@ function orderController() {
         // Emit
         const eventEmitter = req.app.get('eventEmitter');
         eventEmitter.emit('orderPlaced', placedOrder);
-        return res.redirect('/customer/orders');
+        return res.redirect('/customers/orders');
       });
     },
 
@@ -42,11 +42,10 @@ function orderController() {
       try {
         const order = await Order.findById(req.params.id);
         // .populate('customerId','-password -createdAt -updatedAt');
-        if (req.xhr) {
-          return res.json(order);
-        } else {
-          return res.render('customers/singleOrder', { order });
+        if (req.user._id.toString() === order.customerId.toString()) {
+          return res.render('customers/singleOrder', { order: order });
         }
+        return res.render('/', { order });
       } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'Server error' });
