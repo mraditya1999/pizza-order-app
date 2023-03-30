@@ -58,9 +58,9 @@ app.set('view engine', 'ejs');
 
 // Routes
 require('./routes/web')(app);
-app.use((req, res) => {
-  res.render('errors/404');
-});
+// app.use((req, res) => {
+//   res.render('errors/404');
+// });
 
 // Server
 const server = app.listen(APP_PORT, () => {

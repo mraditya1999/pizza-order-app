@@ -46,14 +46,29 @@
 
                                 <div>
                                     <form class="mt-12" action="/orders" method="POST" id="payment-form">
-                                        <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text"
+
+                                        <select id="paymentType" name="paymentType"
+                                            class="w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mb-3 ">
+                                            <option selected value="cod">Cash On Delivery</option>
+                                            <option value="card">Pay With Card</option>
+                                            <!-- <option value="upi">Pay With UPI </option> -->
+                                        </select>
+
+                                        <input type="text" name="phone"
+                                            class=" bg-gray-50 border-gray-300 pl-3 p-2 w-1/2 mb-3 text-gray-800 rounded-md focus:outline-none"
                                             placeholder="Phone Number" required>
-                                        <input name="address" class="border border-gray-400 p-2 w-1/2" type="text"
+
+                                        <input type="text" name="address"
+                                            class="bg-gray-50 border-gray-300 pl-3 p-2 w-1/2 mb-3 text-gray-800 rounded-md focus:outline-none"
                                             placeholder="Address" required>
-                                        <div>
-                                            <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
-                                                type="submit">Order
-                                                Now</button>
+
+                                        <div class="">
+                                            <!--  class="bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500" -->
+                                            <div id="card-element"></div>
+                                            <p class="card-errors"></p>
+                                            <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-4"
+                                                type="submit">Order Now
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

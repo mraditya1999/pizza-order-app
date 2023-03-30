@@ -1,13 +1,13 @@
 import axios from 'axios';
 import Noty from 'noty';
-import { initAdmin } from './admin';
 import moment from 'moment';
+import { initAdmin } from './admin';
+import { initStripe } from './stripe';
 
 let addTocart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cart-counter');
 
 function updateCart(pizza) {
-  //
   axios
     .post('/update-cart', pizza)
     .then((res) => {
@@ -75,9 +75,9 @@ function updateStatus(order) {
 }
 
 updateStatus(order);
-// initStripe();
+initStripe();
 
-// Socket
+// Socket setup
 let socket = io();
 
 // Join
