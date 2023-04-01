@@ -4,6 +4,7 @@ const cartController = require('../app/http/controllers/customers/cartController
 const orderController = require('../app/http/controllers/customers/orderController');
 const adminOrderController = require('../app/http/controllers/admin/orderController');
 const orderStatusController = require('../app/http/controllers/admin/statusController');
+const productController = require('../app/http/controllers/admin/productController');
 
 // Middlewares
 const guest = require('../app/http/middlewares/guest');
@@ -26,6 +27,16 @@ function initRoutes(app) {
   // POST requests
   //FIXME: app.post('/delete-cart', cartController().delete);
   app.get('/offers', homeController().offers);
+  //
+  //
+  //
+  // Product routes
+  app.get('/admin/products', admin, productController().store);
+  app.post('/admin/products', admin, productController().storeProduct);
+  // app.put('/admin/products', productController().updateProduct);
+  //
+  //
+  //
 
   // Customer routes
   app.post('/orders', auth, orderController().store);
