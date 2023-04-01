@@ -7,6 +7,14 @@ import { initStripe } from './stripe';
 let addTocart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cart-counter');
 
+const navToggle = document.querySelector('.navbar-burger');
+const navMenu = document.querySelector('.mobile-menu');
+
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('show-nav');
+  navMenu.classList.toggle('show-nav');
+});
+
 function updateCart(pizza) {
   axios
     .post('/update-cart', pizza)

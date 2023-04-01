@@ -2,17 +2,29 @@
 @import '~noty/src/noty.scss';
 @import '~noty/src/themes/mint.scss';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   color: $dark;
 }
 
-nav li:last-child a {
-  background: $primary;
-  &:hover {
-    background: $primary-hover;
-  }
+// nav li:last-child a {
+//   background: $primary;
+//   &:hover {
+//     background: $primary-hover;
+//   }
+// }
+
+.mobile-menu {
+  display: none;
+}
+
+.show-nav {
+  display: flex;
 }
 
 nav li a {
@@ -23,7 +35,7 @@ nav li a {
 }
 
 section.hero {
-  background: $secondary;
+  // background: $secondary;
 }
 
 .size {
@@ -74,38 +86,10 @@ section.cart {
 }
 
 section.login {
-  min-height: calc(100vh - 90px);
   a {
     color: $primary;
     &:hover {
       color: $primary-hover;
-    }
-  }
-  button {
-    background: $primary;
-    color: $pure;
-    transition: $smooth;
-    border: 2px solid transparent;
-    .icon {
-      color: $pure;
-    }
-    &:hover {
-      border-color: $primary;
-      background: $pure;
-      color: $primary;
-      .icon {
-        color: $primary-hover;
-      }
-      &:focus {
-        outline: 2px solid transparent;
-      }
-    }
-  }
-  .textbox {
-    // border: 2px solid transparent;
-    &:focus {
-      //   border: 1px solid $primary;
-      outline: 1px solid $primary;
     }
   }
 }

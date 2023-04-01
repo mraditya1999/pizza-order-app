@@ -11,6 +11,9 @@ function homeController() {
       //   res.render('home', { pizzas: pizzas });
       // });
     },
+    offers(req, res) {
+      res.render('offers');
+    },
   };
 }
 

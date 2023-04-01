@@ -25,11 +25,13 @@ function initRoutes(app) {
 
   // POST requests
   //FIXME: app.post('/delete-cart', cartController().delete);
+  app.get('/offers', homeController().offers);
 
   // Customer routes
   app.post('/orders', auth, orderController().store);
   app.get('/customer/orders', auth, orderController().index);
   app.get('/customer/orders/:id', auth, orderController().show);
+  app.get('/profile', auth, orderController().profile);
 
   // Admin routes
   app.get('/admin/orders', admin, adminOrderController().index);

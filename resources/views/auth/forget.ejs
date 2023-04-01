@@ -1,34 +1,53 @@
-<section class="login flex justify-center">
+<section class="forget">
 
-    <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="w-full max-w-md space-y-8 ">
-
-            <div>
-                <img class="mx-auto h-12 w-auto" src="/images/logo.png" alt="Your Company">
-                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Forget Password
-                </h2>
-                <p class="mt-2 text-center text-sm text-gray-600"></p>
-            </div>
-
-            <form class="mt-8" action="#" method="POST">
-                <input type="hidden" name="remember" value="true">
-                <div class="rounded-md shadow-sm">
-                    <div>
-                        <label for="email-address" class="sr-only">Email address</label>
-                        <input id="email-address" name="email" type="email" autocomplete="email" required
-                            class="textbox relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 sm:text-sm sm:leading-6 pl-2"
-                            placeholder="Email address">
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+                    style="background-image: url('https://source.unsplash.com/oWTW-jNGl9I/600x800')"></div>
+                <!-- Col -->
+                <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <div class="px-8 mb-4 text-center">
+                        <h3 class="pt-4 mb-2 text-2xl">Forgot Your Password?</h3>
+                        <p class="mb-4 text-sm text-gray-700">
+                            We get it, stuff happens. Just enter your email address below and we'll send you a
+                            link to reset your password!
+                        </p>
                     </div>
+                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                Email
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="email" type="email" placeholder="Enter Email Address..." />
+                        </div>
+                        <div class="mb-6 text-center">
+                            <button
+                                class="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
+                                type="button">
+                                Reset Password
+                            </button>
+                        </div>
+                        <hr class="mb-6 border-t" />
+                        <div class="text-center">
+                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                href="/register">
+                                Create an Account!
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                href="/login">
+                                Already have an account? Login!
+                            </a>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="mt-4">
-                    <button type="submit"
-                        class="group relative flex w-full justify-center rounded-md  py-2 px-3 text-md tracking-wider font-semibold">
-                        <span class=" absolute inset-y-0 left-0 flex items-center pl-3"></span>
-                        Send OTP
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 

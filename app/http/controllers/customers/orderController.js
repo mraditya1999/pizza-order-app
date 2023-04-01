@@ -1,8 +1,8 @@
 const moment = require('moment');
 const Order = require('../../../models/order');
-const STRIPE_PRIVATE_KEY =
-  'sk_test_51MX43ISAviHEZo5hcGN81CfIqm3O7PXoyGreOKxeynCjxoccYnufXEEQkDovVCUkJ7SFRGjOX2sy24prWIrtIDZs009trng2pE';
-const stripe = require('stripe')(STRIPE_PRIVATE_KEY);
+// const STRIPE_PRIVATE_KEY =
+// 'sk_test_51MX43ISAviHEZo5hcGN81CfIqm3O7PXoyGreOKxeynCjxoccYnufXEEQkDovVCUkJ7SFRGjOX2sy24prWIrtIDZs009trng2pE';
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 function orderController() {
   return {
@@ -112,6 +112,10 @@ function orderController() {
       } catch (err) {
         return res.status(500).json({ error: 'Server error' });
       }
+    },
+
+    profile(req, res) {
+      return res.render('customers/profile');
     },
   };
 }

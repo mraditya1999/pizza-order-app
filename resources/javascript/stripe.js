@@ -31,7 +31,6 @@ export async function initStripe() {
       let formObject = {};
       for (let [key, value] of form.entries()) {
         formObject[key] = value;
-        console.log(key, value);
       }
 
       if (!card) {

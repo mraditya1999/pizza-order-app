@@ -383,6 +383,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 var addTocart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cart-counter');
+var navToggle = document.querySelector('.navbar-burger');
+var navMenu = document.querySelector('.mobile-menu');
+navToggle.addEventListener('click', function () {
+  navToggle.classList.toggle('show-nav');
+  navMenu.classList.toggle('show-nav');
+});
 function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_4__["default"].post('/update-cart', pizza).then(function (res) {
     cartCounter.innerText = res.data.totalQty;
@@ -550,7 +556,6 @@ function _initStripe() {
                         for (_iterator.s(); !(_step = _iterator.n()).done;) {
                           _step$value = _slicedToArray(_step.value, 2), key = _step$value[0], value = _step$value[1];
                           formObject[key] = value;
-                          console.log(key, value);
                         }
                       } catch (err) {
                         _iterator.e(err);

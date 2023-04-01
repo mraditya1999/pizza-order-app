@@ -1,16 +1,18 @@
+// Node Packages
 const express = require('express');
-const app = express();
 const ejs = require('ejs');
 const path = require('path');
 const expressEjsLayouts = require('express-ejs-layouts');
-const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-const { APP_PORT, DB_URL, COOKIE_SECRET } = require('./app/config');
 const session = require('express-session');
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo');
 const passport = require('passport');
 const Emitter = require('events');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const { APP_PORT, DB_URL, COOKIE_SECRET } = require('./app/config');
 
 // Database Connection
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -53,14 +55,14 @@ app.use((req, res, next) => {
 
 // Set Template Engine
 app.use(expressEjsLayouts);
-app.set('views', path.join(__dirname, '/resources/views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/resources/views'));
 
 // Routes
 require('./routes/web')(app);
-// app.use((req, res) => {
-//   res.render('errors/404');
-// });
+app.use('', (req, res) => {
+  res.render('errors/404');
+});
 
 // Server
 const server = app.listen(APP_PORT, () => {
